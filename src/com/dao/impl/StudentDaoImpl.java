@@ -27,7 +27,15 @@ public class StudentDaoImpl implements StudentDao {
 		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
 		String sql = "SELECT * FROM dbo.stu";
 		return runner.query(sql, new BeanListHandler<Student>(Student.class));
-	
+
+	}
+
+	@Override
+	public void insert(Student student) throws SQLException {
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		String sql = "INSERT INTO dbo.stu ( sname ,gender,phone,birthday,hobby,info)  VALUES (?,?,?,?,?,?)";
+		runner.update(sql, student.getSname(), student.getGender(), student.getPhone(), student.getBirthday(),
+				student.getHobby(), student.getInfo());
 	}
 
 }

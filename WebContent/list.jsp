@@ -8,9 +8,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<tr>
+		<td colspan="8">按姓名查询:<input type="text" name="sname" /> &nbsp;
+			按性别查询:<select name="sgender">
+				<option value="">--请选择--
+					<option value="男">男
+								
+				<option value="女">女
+							  
+		</select>
+					&nbsp;&nbsp;&nbsp;
+					<input type="submit" value="查询">
+					&nbsp;&nbsp;&nbsp;
+					<a href="add.jsp">添加</a>
+				</td>
+			</tr>
+		
 	<table border="1" width="700">
 
-		<tr align="center">
+						<tr align="center">
 			<td>编号</td>
 			<td>姓名</td>
 			<td>性别</td>
@@ -18,20 +34,22 @@
 			<td>生日</td>
 			<td>爱好</td>
 			<td>简介</td>
-			<!-- <td>操作</td> -->
+			<td>操作</td>
 		</tr>
 		<c:forEach items="${list }" var="stu">
 			<tr align="center">
 				<td>${stu.sid }</td>
-				<td>${stu.name }</td>
+				<td>${stu.sname }</td>
 				<td>${stu.gender }</td>
 				<td>${stu.phone }</td>
 				<td>${stu.birthday }</td>
 				<td>${stu.hobby }</td>
 				<td>${stu.info }</td>
-				<%-- <td><a href="EditServlet?sid=${stu.sid }">更新</a>   <a href="#" onclick="doDelete(${stu.sid})">删除</a></td> --%>
+				<td><a href="EditServlet?sid=${stu.sid }">更新</a>   <a href="#"
+									onclick="doDelete(${stu.sid})">删除</a></td>
 			</tr>
 		</c:forEach>
 	</table>
-</body>
+
+				</body>
 </html>

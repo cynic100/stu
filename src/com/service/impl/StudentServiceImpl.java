@@ -18,5 +18,11 @@ public class StudentServiceImpl implements StudentService {
 		return dao.findall();
 	}
 
+	@Override
+	public void insert(Student student) throws SQLException {
+		StudentDao dao= new StudentDaoImpl();
+		dao.insert(student);
+	}
+
 	
 }

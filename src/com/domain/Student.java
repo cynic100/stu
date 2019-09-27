@@ -11,8 +11,9 @@ import java.util.Date;
  * @version V1.0
  */
 public class Student {
+	
 	private int sid;
-	private String name;
+	private String sname;
 	private String gender;
 	private String phone;
 	public int getSid() {
@@ -21,11 +22,12 @@ public class Student {
 	public void setSid(int sid) {
 		this.sid = sid;
 	}
-	public String getName() {
-		return name;
+	
+	public String getSname() {
+		return sname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
 	public String getGender() {
 		return gender;
@@ -60,5 +62,28 @@ public class Student {
 	private Date birthday;
 	private String hobby;
 	private String info;
+	
+	
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Student(int sid, String sname, String gender, String phone, Date birthday, String hobby, String info) {
+		super();
+		this.sid = sid;
+		this.sname = sname;
+		this.gender = gender;
+		this.phone = phone;
+		this.birthday = birthday;
+		this.hobby = hobby;
+		this.info = info;
+	}
+	@Override
+	public String toString() {
+		return "Student [sid=" + sid + ", sname=" + sname + ", gender=" + gender + ", phone=" + phone + ", birthday="
+				+ birthday + ", hobby=" + hobby + ", info=" + info + "]";
+	}
 
+	
+	
 }
