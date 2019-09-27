@@ -38,4 +38,11 @@ public class StudentDaoImpl implements StudentDao {
 				student.getHobby(), student.getInfo());
 	}
 
+	@Override
+	public void delete(int sid) throws SQLException {
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		String sql="delete from stu where sid=?";
+		runner.update(sql,sid);
+	}
+
 }

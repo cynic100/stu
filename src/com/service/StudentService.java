@@ -22,4 +22,13 @@ public interface StudentService {
 	* @throws  
 	*/
 	void insert(Student student) throws SQLException;
+	
+	/**  
+	* @Description: 跟进sid删除学生(这里用一句话描述这个方法的作用)  
+	* @author xu_yuxin
+	* @param tags    参数  
+	* @return return_type    返回类型  
+	* @throws  
+	*/
+	void delete(int sid)throws SQLException;
 }

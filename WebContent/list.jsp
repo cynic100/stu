@@ -6,6 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+	function doDelete(sid) {
+		/* 如果这里弹出的对话框，用户点击的是确定，就马上去请求Servlet。 
+		如何知道用户点击的是确定。
+		如何在js的方法中请求servlet。 */
+		var flag = confirm("是否确定删除?");
+		if(flag){
+			//表明点了确定。 访问servlet。 在当前标签页上打开 超链接，
+			//window.location.href="DeleteServlet?sid="+sid;
+			location.href="DeleteServlet?sid="+sid;
+		}
+	}
+</script>
 </head>
 <body>
 	<tr>
