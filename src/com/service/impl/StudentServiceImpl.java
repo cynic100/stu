@@ -30,5 +30,19 @@ public class StudentServiceImpl implements StudentService {
 		dao.delete(sid);
 	}
 
+	@Override
+	public Student findStudentByid(int sid) throws SQLException {
+		StudentDao dao= new StudentDaoImpl();
+		return dao.findStudentByid(sid);
+	}
+
+	@Override
+	public void update(Student student) throws SQLException {
+		System.out.println("update_impl:"+student.toString());
+		StudentDao dao= new StudentDaoImpl();
+		dao.update(student);
+		
+	}
+
 	
 }

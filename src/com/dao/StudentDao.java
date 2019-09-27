@@ -33,4 +33,21 @@ public interface StudentDao {
 	* @throws  
 	*/
 	void delete(int sid)throws SQLException;
+	
+	/**  
+	* @Description: 跟进sid查询单个学生信息(这里用一句话描述这个方法的作用)  
+	* @author xu_yuxin
+	* @param tags    参数  
+	* @return return_type    返回类型  
+	* @throws  
+	*/
+	Student findStudentByid(int sid) throws SQLException;
+	/**  
+	* @Description: 更新(这里用一句话描述这个方法的作用)  
+	* @author xu_yuxin
+	* @param tags    参数  
+	* @return return_type    返回类型  
+	* @throws  
+	*/
+	void update (Student student )throws SQLException ;
 }
