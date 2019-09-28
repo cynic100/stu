@@ -1,7 +1,10 @@
 package com.dao.impl;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
@@ -12,6 +15,7 @@ import com.dao.StudentDao;
 import com.domain.Student;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.util.JDBCUtil02;
+import com.util.TextUtils;
 
 /**
  * @Title: 接口实现
@@ -60,5 +64,28 @@ public class StudentDaoImpl implements StudentDao {
 				student.getSname(), student.getGender(), student.getPhone(), student.getBirthday(), student.getHobby(),
 				student.getInfo(), student.getSid());
 	}
+
+	@Override
+	public List<Student> SearchStudent(String sname, String sgender) throws SQLException {
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		StringBuilder sqlBuilder = new StringBuilder();
+		List<String> list = new ArrayList<String>();
+		sqlBuilder.append("select * from stu where 1=1 ");
+		
+		
+		if (!TextUtils.isEmpty(sname)) {
+			sqlBuilder.append(" and sname like ?");
+			list.add("%"+sname+"%");
+		}
+		if (!TextUtils.isEmpty(sgender)) {
+			sqlBuilder.append(" and gender like ?");
+			list.add(sgender);
+		}
+		return runner.query(sqlBuilder.toString(), new BeanListHandler<Student>(Student.class),list.toArray());
+		
+		
+	}
+	
+	
 
 }

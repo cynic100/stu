@@ -38,10 +38,15 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public void update(Student student) throws SQLException {
-		System.out.println("update_impl:"+student.toString());
 		StudentDao dao= new StudentDaoImpl();
 		dao.update(student);
 		
+	}
+
+	@Override
+	public List<Student> SearchStudent(String sname, String sgender) throws SQLException {
+		StudentDao dao= new StudentDaoImpl();
+		return dao.SearchStudent(sname, sgender);
 	}
 
 	

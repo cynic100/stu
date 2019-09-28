@@ -49,4 +49,13 @@ public interface StudentService {
 	* @throws  
 	*/
 	void update (Student student )throws SQLException ;
+	
+	/**  
+	* @Description: 跟进姓名获取性别模糊查询(这里用一句话描述这个方法的作用)  
+	* @author xu_yuxin
+	* @param tags    参数  
+	* @return return_type    返回类型  
+	* @throws  
+	*/
+	java.util.List<Student> SearchStudent(String sname,String sgender)throws SQLException;
 }
