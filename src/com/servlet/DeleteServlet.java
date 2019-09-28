@@ -19,7 +19,6 @@ public class DeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int sid = Integer.parseInt(request.getParameter("sid"));
-		System.out.println(sid);
 		
 		StudentService service=new StudentServiceImpl();
 		try {

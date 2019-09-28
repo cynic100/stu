@@ -10,6 +10,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.dao.StudentDao;
 import com.domain.Student;
@@ -84,6 +85,22 @@ public class StudentDaoImpl implements StudentDao {
 		return runner.query(sqlBuilder.toString(), new BeanListHandler<Student>(Student.class),list.toArray());
 		
 		
+	}
+
+	@Override
+	public List<Student> findStudentByPage(int currentPage) throws SQLException {
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		StringBuilder sql = new StringBuilder();
+		sql.append("EXEC P_GetInfoByPage ?");		
+		
+		return runner.query(sql.toString(), new BeanListHandler<Student>(Student.class),currentPage);
+
+	}
+
+	@Override
+	public int findCount() throws SQLException {
+		QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
+		return (int) runner.query("select count(*) from stu", new ScalarHandler());
 	}
 	
 	

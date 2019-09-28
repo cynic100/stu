@@ -7,7 +7,26 @@ import com.domain.*;
 import com.servlet.DeleteServlet;
 import com.servlet.SearchStudentServlet;
 
-public interface StudentDao {	
+public interface StudentDao<T> {
+	
+	int PAGE_SIZE = 4; //一页显示多少条记录
+	
+	/**  
+	* @Description: 返回总的条数(这里用一句话描述这个方法的作用)  
+	* @author xu_yuxin
+	* @param tags    参数  
+	* @return return_type    返回类型  
+	* @throws  
+	*/
+	int findCount() throws SQLException;
+	/**  
+	* @Description: 按页码查询数据(这里用一句话描述这个方法的作用)  
+	* @author xu_yuxin
+	* @param tags    参数  
+	* @return return_type    返回类型  
+	* @throws  
+	*/
+	java.util.List<Student> findStudentByPage(int currentPage) throws SQLException;
 	/**  
 	* @Description: 查询所有学生(这里用一句话描述这个方法的作用)  
 	* @author xu_yuxin

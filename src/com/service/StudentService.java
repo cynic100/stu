@@ -2,9 +2,20 @@ package com.service;
 
 import java.sql.SQLException;
 
+import com.domain.PageBean;
 import com.domain.Student;
 
 public interface StudentService {
+	
+	/**  
+	* @Description: 按页码查询数据(这里用一句话描述这个方法的作用)  
+	* @author xu_yuxin
+	* @param tags    参数  
+	* @return return_type    返回类型  
+	* @throws  
+	*/
+	PageBean findStudentByPage(int currentPage) throws SQLException;
+
 	/**  
 	* @Description: 查询所有学生(这里用一句话描述这个方法的作用)  
 	* @author xu_yuxin

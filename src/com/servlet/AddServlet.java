@@ -36,15 +36,11 @@ public class AddServlet extends HttpServlet {
 			String phone = request.getParameter("phone");
 			String birthday = request.getParameter("birthday");
 			String[] h = request.getParameterValues("hobby");
-			System.out.println(h);
 			String hobby = Arrays.toString(h);
-			System.out.println(hobby);
 			hobby = hobby.substring(1, hobby.length() - 1);
-			System.out.println(hobby);
 			String info = request.getParameter("info");
 			Date date = new SimpleDateFormat("yyyy-mm-dd").parse(birthday);
 			Student student = new Student(0, sname, gender, phone, date, hobby, info);
-			System.out.println(student.toString());
 			StudentService service = new StudentServiceImpl();
 			service.insert(student);
 		} catch (Exception e) {
